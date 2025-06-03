@@ -10,6 +10,20 @@ function landingPageBtn(){
     
 }
 
+// generate random Number//
+function randomNumbers(){
+    const number = Math.floor(Math.random()*10);
+    return number
+}
+//showing the number in box
+function generateQuestion(){
+    const genQuestion = document.querySelector('.genClass');
+    const numOne = randomNumbers();
+    const numTow = randomNumbers();
+    genQuestion.innerText = `${numOne} + ${numTow} = ?`
+
+}
 
 
 landingPageBtn();
+generateQuestion();
