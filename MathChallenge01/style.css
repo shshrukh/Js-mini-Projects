@@ -157,6 +157,8 @@ input{
     text-align: center;
     color: #0284c7;
     font-weight: 300;
+    overflow-x: hidden;
+    /* position: absolute; */
 }
 input::placeholder{
     text-align: center;
