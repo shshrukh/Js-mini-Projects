@@ -9,6 +9,7 @@ const state = {
 function init(){
     cashDom();
     bindEvents();
+    
 }
 // step -->4 filling the els object 
 function cashDom(){
@@ -22,12 +23,13 @@ function bindEvents(){
     els.button.addEventListener('click', handleColorFlip)
 }
 
-
+// step -->6  make handeler to generate colors
 function handleColorFlip(){
     state.currentColor = getRandomHexColor();
     renderColor();
-}
 
+}
+// step --> 7 redner the colors
 function renderColor(){
     els.body.style.backgroundColor = state.currentColor;
     els.colorCode.innerText = state.currentColor;
