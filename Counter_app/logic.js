@@ -1,13 +1,14 @@
 // step 3 amking els obj and state obj els obj is manage dom elements and state is for manage states
-els = {};
+const els = {};
 
-state = {
+const state = {
     count : 0
 }
 // step 2 making inti function 
 function init(){
     domCashe();
     bindEvents();
+    render();
 }
 
 // step 4 filling the els obj using domCashe function 
@@ -25,19 +26,22 @@ function bindEvents (){
     els.reset.addEventListener('click', handleReset);
 }
  
-// if each events are triger perfom action accprding to handle events
+// if each events are triger perfom action accprding to handle events and render function workes
+function render(){
+    els.counter.innerText = state.count;
+}
 
 function handleIncrement(){
     state.count += 1;
-    els.counter.innerText = state.count;
+    render();
 }
 function handleDecrenemt(){
     state.count -= 1;
-    els.counter.innerText = state.count;
+    render();
 }
 function handleReset(){
     state.count = 0;
-    els.counter.innerText = state.count;
+    render()
 }
 
 //step 1 when document is loaded init funtion will triger. 
