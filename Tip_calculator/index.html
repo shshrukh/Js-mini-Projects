@@ -12,18 +12,19 @@
         <h1>tip calculator</h1>
         <!-- input for bill -->
         <label for="bill">Bill Amount is</label>
-        <input type="number" id="bill" placeholder="Enter bill amount">
+        <input type="number" id="bill" placeholder="Enter bill amount" min="0">
 
         <!-- input for tip persentage -->
         <label for="tip">tip persentage </label>
-        <input type="number" id="tip" placeholder="Enter Tip %">
+        <input type="number" id="tip" placeholder="Enter Tip %" min="0">
 
         <!-- number of people -->
         <label for="people">Number of people</label>
-        <input type="number" id="people" placeholder="Enter the number of people">
+        <input type="number" id="people" placeholder="Enter the number of people" min="1">
         <div class="resultContainer">
             <div class="result"></div>
             <button class="calculate">Calculate</button>
+
 
         </div>
     </div>
