@@ -76,7 +76,7 @@ function nextQuestionOrEnd() {
   currentQuestion = generateQuestion();
   renderQuestion(currentQuestion);
   clearInterval(state.intervalId); // clear previous timer
-  startTimer();
+//   startTimer();
 }
 function endGame() {
   state.isPlaying = false;

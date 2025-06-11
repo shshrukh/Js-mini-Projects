@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+button{
+    padding: 1.5rem 2rem;
+    border: none;
+    border-radius: 15px;
+    background: #051771;
+    color: white;
+    font-size: x-large;
+    font-weight: 800;
+}
+button:hover{
+    background-color: white;
+    color: #051771;
+    box-shadow: 0px 0px 15px black;
+    transition: 0.5s;
+}
+#counter{
+    font-size: xx-large;
+    font-weight: 900;
+}
