@@ -42,5 +42,11 @@ button:hover{
     cursor: pointer;
 }
 .resultContainer{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.re-calculate{
+    display: none;
 }
