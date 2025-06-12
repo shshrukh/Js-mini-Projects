@@ -15,8 +15,9 @@ function casheDom (){
     els.tip = document.getElementById('tip');
     els.people = document.getElementById('people');
     els.result = document.querySelector('.result');
-    els.calcutateBtn = document.querySelector('.calculate');
+    els.calculateBtn = document.querySelector('.calculate');
     els.inputs = document.querySelectorAll('input');
+    els.recalculate = document.querySelector('.re-calculate')
 }
 
 
@@ -27,7 +28,8 @@ function bindEvents(){
         iteams.addEventListener('keyup',handleAnswerTyping)
     });
 
-    els.calcutateBtn.addEventListener('click', handleCalculation)
+    els.calculateBtn.addEventListener('click', handleCalculation);
+    els.recalculate.addEventListener('click', reset);
 
 
 }
@@ -35,29 +37,53 @@ function bindEvents(){
 function handleAnswerTyping(e){
     const storeIdValue = e.target.id;
     if(storeIdValue === 'bill'){
-        state.bill = e.target.value;
+        state.bill = parseFloat(e.target.value) || 0;
         console.log('user is typing', state.bill);
         
     }else if(storeIdValue === 'tip'){
-        state.tip = e.target.value;
+        state.tip = parseFloat(e.target.value) || 0;
         console.log('user is typing', state.tip);
     }else{
-        state.people = e.target.value;
+        state.people = parseFloat(e.target.value) || 0;
         console.log('user is typing', state.people);
     }
     
 }
 function handleCalculation(){
     const {bill,tip, people} = state;
-    const tipAmount = tip/100*bill;
-    const totalAmount = Number(bill)+Number(tipAmount);
-    console.log('total amount is ',totalAmount);
+    if(!bill || !tip || !people){
+        alert('please enter the bill, tip % , and number of people');
+        return undefined;
+    }
+    if(people <= 1){
+        alert('Number of people must be at least 2')
+        return undefined;
+    }
     
-    const eachPersonPay = totalAmount/people;
+    const tipAmount = +(bill * tip / 100).toFixed(2);
+    const totalAmount = +(bill + tipAmount).toFixed(2);
+    // console.log('total amount is ',totalAmount);
+    
+    const eachPersonPay = +(totalAmount / people).toFixed(2);
     state.Text = `your bill is ${bill}$ and tip is ${tipAmount}$ tota amount is ${totalAmount}$ and each person pay ${eachPersonPay}$`;
     console.log(state);
     render()
+    toggleButtons('re-calc')
     
+}
+function toggleButtons(mode) {
+  const showCalc = mode === 'reset';
+  els.calculateBtn.style.display   = showCalc ? 'block' : 'none';
+  els.recalculate.style.display = showCalc ? 'none'  : 'block';
+}
+function reset() {
+  Object.assign(state, { bill:0, tip:0, people:0, Text:'' });
+
+  els.inputs.forEach(inp => inp.value = '');
+  els.result.innerText = '';
+  toggleButtons('reset');
+  console.log('working');
+  
 }
 
 function render(){
