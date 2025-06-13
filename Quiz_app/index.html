@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="logic.js" defer></script>
+    <title>Quiz app</title>
+</head>
+
+<body>
+    <!-- start screen -->
+    <section id="startScreen" class="container">
+        <h1>Quiz App</h1>
+        <div><button id="startButton">Start Quiz</button></div>
+    </section>
+    <!-- question screen -->
+    <section class="quizContainer container hidden">
+        <div class="question-header">
+            <h2 id="question-text">What is the capital of France?</h2>
+        </div>
+
+        <div class="options-container">
+            <button class="option-btn" data-value="A">A. Berlin</button>
+            <button class="option-btn" data-value="B">B. Madrid</button>
+            <button class="option-btn" data-value="C">C. Paris</button>
+            <button class="option-btn" data-value="D">D. Rome</button>
+        </div>
+        <div>
+            <button type="submit" class="submit-btn">Submit Answer</button>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+    </section>
+    <!-- answer review -->
+    <section class="answerFeedback container">
+        <h1 class="score">your score is 99</h1>
+    </section>
+
+</body>
+
+</html>
